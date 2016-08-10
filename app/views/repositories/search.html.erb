@@ -5,3 +5,8 @@
   <%= submit_tag "Search Github!" %>
 <% end %>
 
+<% unless @repo.nil? %>
+  <%= @repo['name'] %>
+  <%= link_to @repo['html_url'], @repo['html_url'] %>
+  <%= @repo['description'] %>
+<% end %>

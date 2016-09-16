@@ -4,4 +4,22 @@
   <%= text_field_tag :query %>
   <%= submit_tag "Search Github!" %>
 <% end %>
-
+<div>
+  <% if @error %>
+    <p><%= @error %></p>
+  <% elsif @venues %>
+    <ul>
+    <% @venues.each do |venue| %>
+      <li>
+        <h1><%= venue['name'] %></h1>
+      </li>
+      <li>
+        <%= link_to venue["url"].gsub(/api\.|repos\//,""), venue["url"].gsub(/api\.|repos\//,"") %> <br />
+      </li>
+      <li>
+        <p>description: <%= venue['description'] %> </p>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>

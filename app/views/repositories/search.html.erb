@@ -1,3 +1,4 @@
+
 <h1>Search Github Repositories</h1>
 <%= form_tag '/search' do %>
   <%= label_tag :query %>
@@ -5,3 +6,12 @@
   <%= submit_tag "Search Github!" %>
 <% end %>
 
+<div >
+  <% if @items %>
+  <h3>Name: <%=@items.first["name"]%></h3><br>
+  <%= link_to "#{@items.first["html_url"]}", @items.first["html_url"] %> <br>
+  <p>
+    Decription: <%=  @items.first["description"] %>
+  </p>
+</div>
+<% end %> 

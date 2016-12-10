@@ -5,3 +5,20 @@
   <%= submit_tag "Search Github!" %>
 <% end %>
 
+<div>
+  <% if @error %>
+    Error: <%= @error %>!
+  <% elsif @el == [] %>
+    Error: Invalid Search Request!
+  <% elsif @el%>
+    <ul>
+    <% @el.each do |el| %>
+      <li>
+        Link: <%= link_to "#{el["html_url"]}", el["html_url"] %><br>
+        Name: <%= el["name"] %><br>
+        Description: <%= el["description"] %><br><br>
+      </li>
+      <% end %>
+  <% end %>
+  </ul>
+</div>
